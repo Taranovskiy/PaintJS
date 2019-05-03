@@ -29,6 +29,7 @@ class App {
       this.context.beginPath();
       this.context.moveTo(this.lastEvent.offsetX, this.lastEvent.offsetY);
       this.context.lineTo(evt.offsetX, evt.offsetY);
+      this.context.strokeStyle = this.colorPallete.currentColor;
       this.context.stroke();
       this.lastEvent = evt;
     }
