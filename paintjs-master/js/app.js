@@ -17,6 +17,11 @@ class App {
     this.canvas.addEventListener('mousemove', this.handleCanvasMousemove.bind(this));
     this.canvas.addEventListener('mouseup', this.handleCanvasMouseup.bind(this));
     this.canvas.addEventListener('mouseleave', this.handleCanvasMouseleave.bind(this));
+
+    document.querySelector('#clear-canvas-button')
+      .addEventListener('click', this.handleCanvasClear.bind(this));
+    document.querySelector('#brush-size-slider')
+      .addEventListener('change', this.handleBrushSizeChange.bind(this));
   }
 
   handleCanvasMousedown(evt) {
@@ -41,5 +46,14 @@ class App {
 
   handleCanvasMouseleave(evt) {
     this.isDrawing = false;
+  }
+
+  handleCanvasClear(evt) {
+    this.context.fillStyle = 'white';
+    this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  handleBrushSizeChange({ target }) {
+    this.context.lineWidth = Number(target.value);
   }
 }

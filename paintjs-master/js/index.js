@@ -10,5 +10,7 @@ new App({
     ]
   }),
 
-  colorPicker: new ColorPicker({})
+  colorPicker: new ColorPicker({
+    element: ducument.querySelector('#color-picker')
+  })
 })
