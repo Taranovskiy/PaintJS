@@ -11,6 +11,6 @@ new App({
   }),
 
   colorPicker: new ColorPicker({
-    element: ducument.querySelector('#color-picker')
+    element: document.querySelector('#color-picker')
   })
 })

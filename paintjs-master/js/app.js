@@ -18,10 +18,14 @@ class App {
     this.canvas.addEventListener('mouseup', this.handleCanvasMouseup.bind(this));
     this.canvas.addEventListener('mouseleave', this.handleCanvasMouseleave.bind(this));
 
+    this.colorPicker.onAdd = color => this.colorPallete.addColor(color);
+
     document.querySelector('#clear-canvas-button')
       .addEventListener('click', this.handleCanvasClear.bind(this));
     document.querySelector('#brush-size-slider')
       .addEventListener('change', this.handleBrushSizeChange.bind(this));
+    document.querySelector('#new-color-button')
+      .addEventListener('click', this.handleNewColorButton.bind(this));
   }
 
   handleCanvasMousedown(evt) {
@@ -55,5 +59,9 @@ class App {
 
   handleBrushSizeChange({ target }) {
     this.context.lineWidth = Number(target.value);
+  }
+
+  handleNewColorButton(evt) {
+    this.colorPicker.open();
   }
 }
